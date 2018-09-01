@@ -1,0 +1,27 @@
+graph G {
+graph [shape="ellipse"];
+subgraph cluster2 {
+E -- F [label=0.95];
+label=Cluster2
+}
+subgraph cluster4 {
+C
+D
+subgraph cluster1 {
+A -- B [label=0.95];
+label=Cluster1
+}
+subgraph cluster3 {
+G -- H [label=0.95];
+label=Cluster3
+}
+label=Cluster4
+}
+cluster1 -- C [label=0.89,dir=forward];
+cluster1 -- D [label=0.89,dir=forward];
+cluster1 -- cluster3 [label=0.84,dir=forward];
+cluster4 -- cluster2 [label=0.74,dir=forward];
+C--D[label=0.82,color=red,fontcolor=red];
+C--cluster3[label=0.76,color=red,fontcolor=red];
+D--cluster3[label=0.81,color=red,fontcolor=red];
+}

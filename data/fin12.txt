@@ -1,1 +1,1 @@
-yield decide fund.
+yield decide fund.company depend on global asset price.

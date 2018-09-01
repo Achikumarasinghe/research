@@ -31,10 +31,13 @@ data = data.split(" ")
 texts=[]
 for i in range(len(data)):
     texts.append(data[i])
+    print(texts)
     texts[i] = texts[i].translate(string.punctuation).lower()
     texts[i] = nltk.word_tokenize(texts[i])
     texts[i] = [stemmer.stem(word) for word in texts[i] if not word in stopwords.words('english')]
-    texts[i].join(" ")
+    " ".join(texts[i])
+
+print(texts)
  
 transformer = TfidfVectorizer()
 tfidf = transformer.fit_transform(texts)     

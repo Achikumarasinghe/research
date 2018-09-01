@@ -1,1 +1,1 @@
-yield on bond.
+yield on bond.fund depend on global asset price.
