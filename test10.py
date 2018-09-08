@@ -21,3 +21,10 @@ command = 'C:/Program Files/R/R-3.5.1/bin/Rscript'
 path2script = 'E:/SLIIT1/4th year/RESEARCH/Workspace/research/testr.R'
 args = r_dataframe
 retcode = subprocess.call([command, path2script], shell=True)
+
+from graphviz import Source
+import os
+os.environ["PATH"] += os.pathsep + 'C:/Program Files (x86)/Graphviz2.38/bin/'
+path = 'Igraph.dot'
+s = Source.from_file(path)
+s.view()

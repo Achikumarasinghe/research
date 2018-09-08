@@ -1,27 +1,40 @@
 graph G {
 graph [shape="ellipse"];
 subgraph cluster2 {
-E -- F [label=0.95];
-label=Cluster2
-}
-subgraph cluster4 {
-C
-D
+asset
+asset -- depend [label=0.2,dir=forward];
+asset -- fund [label=0.2,dir=forward];
+asset -- global [label=0.2,dir=forward];
+asset -- price [label=0.2,dir=forward];
 subgraph cluster1 {
-A -- B [label=0.95];
+financial -- crisis [label=0.21,dir=forward];
+financial -- impact [label=0.21,dir=forward];
+financial -- hold [label=0.24,dir=forward];
+financial -- position [label=0.24,dir=forward];
+financial -- rate [label=0.24,dir=forward];
 label=Cluster1
 }
-subgraph cluster3 {
-G -- H [label=0.95];
-label=Cluster3
+label=Cluster2
 }
-label=Cluster4
-}
-cluster1 -- C [label=0.89,dir=forward];
-cluster1 -- D [label=0.89,dir=forward];
-cluster1 -- cluster3 [label=0.84,dir=forward];
-cluster4 -- cluster2 [label=0.74,dir=forward];
-C--D[label=0.82,color=red,fontcolor=red];
-C--cluster3[label=0.76,color=red,fontcolor=red];
-D--cluster3[label=0.81,color=red,fontcolor=red];
+asset -- cluster1 [label=0.11,dir=forward];
+crisis--impact[label=0.16,color=red,fontcolor=red];
+crisis--hold[label=0.11,color=red,fontcolor=red];
+crisis--position[label=0.11,color=red,fontcolor=red];
+crisis--rate[label=0.11,color=red,fontcolor=red];
+impact--hold[label=0.11,color=red,fontcolor=red];
+impact--position[label=0.11,color=red,fontcolor=red];
+impact--rate[label=0.11,color=red,fontcolor=red];
+hold--position[label=0.2,color=red,fontcolor=red];
+hold--rate[label=0.2,color=red,fontcolor=red];
+position--rate[label=0.2,color=red,fontcolor=red];
+cluster1--depend[label=0.0017,color=red,fontcolor=red];
+cluster1--fund[label=0.0017,color=red,fontcolor=red];
+cluster1--global[label=0.0017,color=red,fontcolor=red];
+cluster1--price[label=0.0017,color=red,fontcolor=red];
+depend--fund[label=0.17,color=red,fontcolor=red];
+depend--global[label=0.17,color=red,fontcolor=red];
+depend--price[label=0.17,color=red,fontcolor=red];
+fund--global[label=0.17,color=red,fontcolor=red];
+fund--price[label=0.17,color=red,fontcolor=red];
+global--price[label=0.17,color=red,fontcolor=red];
 }

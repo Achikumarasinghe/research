@@ -34,7 +34,12 @@ print("= ="*20)
 
 cos_sim_matix_tfidf =(tfidf_matrix * tfidf_matrix.T).toarray()
 cos_sim_matix_tfidf_df = pd.DataFrame(cos_sim_matix_tfidf)
-print("COS SIM MATRIX TFIDF\n",cos_sim_matix_tfidf_df)
+print("COS SIM MATRIX of documents TFIDF\n",cos_sim_matix_tfidf_df)
+print("= ="*20)
+
+cos_sim_matix_tfidf =(tfidf_matrix.T * tfidf_matrix).toarray()
+cos_sim_matix_tfidf_df = pd.DataFrame(cos_sim_matix_tfidf,columns=tf.get_feature_names())
+print("COS SIM MATRIX of words TFIDF\n",cos_sim_matix_tfidf_df)
 print("= ="*20)
 
 svd =  TruncatedSVD(n_components=2,n_iter=5)
@@ -44,9 +49,14 @@ print("LSA\n",lsa_df)
 print("= ="*20)
 
 cos_sim_matix = np.dot(lsa,lsa.T)
-cos_sim_matix_df = pd.DataFrame(cos_sim_matix)
+cos_sim_matix_df = pd.DataFrame(cos_sim_matix,columns=tf.get_feature_names())
 print("COS SIM MATRIX LSA\n",cos_sim_matix_df)
+cos_sim_matix_df.to_csv("dataframe.csv",index=False)
 print("= ="*20)
+print("= ="*20)
+print(cos_sim_matix[2][:2])
+print("= ="*20)
+print(cos_sim_matix[2][(2+1):])
 
 
 index = tf.vocabulary_["depend"]
@@ -56,10 +66,16 @@ print("= ="*20)
 print("WORD TO WORD SIMILARITY")
 print(np.concatenate((cos_sim_matix[index][:index] , cos_sim_matix[index][(index+1):])))
 
+
 print("= ="*20)
 print("MAX SIMILARITY")
 print(np.argmax(np.concatenate((cos_sim_matix[index][:index] , cos_sim_matix[index][(index+1):])))) 
 
-
+from graphviz import Source
+import os
+os.environ["PATH"] += os.pathsep + 'C:/Program Files (x86)/Graphviz2.38/bin/'
+path = 'Igraph.dot'
+s = Source.from_file(path)
+s.view()
 
 

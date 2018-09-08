@@ -1,10 +1,13 @@
 digraph family {
 	size="10,10";
-A->C[len=1.8,label=0.9];
-A->D[len=1.8,label=0.9];
-B->G[len=1.89,label=0.87];
-B->H[len=1.89,label=0.87];
-A->B[len=1.65,label=0.95,dir=both];
-G->H[len=1.65,label=0.95,dir=both];
-A->E[len=1.95,label=0.85]; A->F[len=1.95,label=0.85];
+asset->crisis[len=3.93987380662731,label=0.186708731124229,dir=back];
+asset->depend[len=3.91222398519571,label=0.195925338268096];
+asset->fund[len=3.91222398519571,label=0.195925338268096];
+asset->global[len=3.91222398519571,label=0.195925338268096];
+asset->price[len=3.91222398519571,label=0.195925338268096];
+financial->crisis[len=3.88433192230093,label=0.205222692566358];
+financial->impact[len=3.88433192230093,label=0.205222692566358];
+financial->hold[len=3.78705109059493,label=0.237649636468355];
+financial->position[len=3.78705109059493,label=0.237649636468355];
+financial->rate[len=3.78705109059493,label=0.237649636468355];
 }
