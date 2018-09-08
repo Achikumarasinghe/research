@@ -94,3 +94,30 @@ print(getClosestTerm("fund",tf,lsa))
 print("= ="*20)
 print("6 closet terms for fund is : ")
 print(kClosestTerms(6,"fund",tf,lsa))
+
+x = ["yield","fund","price","asset","global"]
+index_array = []
+for y in x:
+    index = tf.vocabulary_[y]
+    index_array.append(index)
+    
+print(index_array)
+#get 3 closet terms for ontology concepts
+kterms_f = []
+for i in x:
+    kterms = kClosestTerms(3,i,tf,lsa)
+    for term in kterms:
+        if term not in kterms_f:
+            kterms_f.append(term)
+    print(kterms)
+
+print(kterms_f)
+#append them in to ontology array
+for term1 in kterms_f:
+    if term1 not in x:
+        x.append(term1)
+
+print(x)
+
+#if kindex not in index_array:
+    
